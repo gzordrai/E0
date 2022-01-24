@@ -9,12 +9,12 @@ using namespace std;
 
 class E0 {
     private:
-        vector<int> key;
+        vector<char> key;
         string message;
 
     public:
         E0(const string &key, const string &message);
-        E0(const vector<int> &key, const string &message);
+        E0(const vector<char> &key, const string &message);
 };
 
 #endif
