@@ -9,12 +9,13 @@ using namespace std;
 
 class E0 {
     private:
-        vector<char> key;
+        string key;
         string message;
+        char intToAscii(int code);
 
     public:
         E0(const string &key, const string &message);
-        E0(const vector<char> &key, const string &message);
+        string decrypt();
 };
 
 #endif
