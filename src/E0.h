@@ -11,6 +11,7 @@ class E0 {
     private:
         string key;
         string message;
+        void createKey();
         char intToAscii(int code);
 
     public:
