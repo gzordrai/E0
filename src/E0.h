@@ -11,11 +11,12 @@ class E0 {
     private:
         string key;
         string message;
-        void createKey();
+        string createKey(const string &key);
         char intToAscii(int code);
 
     public:
         E0(const string &key, const string &message);
+        string encrypt();
         string decrypt();
 };
 

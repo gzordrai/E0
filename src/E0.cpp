@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bitset>
 #include <string>
 #include <vector>
 #include <math.h>
@@ -24,16 +25,6 @@ E0::E0(const string &key, const string &message) {
 
     this->key = key;
     this->message = message;
-    this->createKey();
-}
-
-void E0::createKey() {
-    string key = this->key;
-
-    for(int i = 0; i < (int) (this->message.size() - this->key.size()); i++)
-        key += (key[i] ^ key[i + 2]) ^ (key[i + 4] ^ key[i + 5]) ? '1' : '0';
-
-    this->key = key;
 }
 
 /**
@@ -47,18 +38,48 @@ char E0::intToAscii(int code) {
 }
 
 /**
+ * @brief Encrypt a message
+ * 
+ * @return string 
+ */
+string E0::encrypt() {
+    int i;
+    string key = this->key;
+    string message;
+    string ret;
+
+    cout << this->key << endl;
+
+    for(i = 0; i < (int) (this->message.size()); i++)
+        message += ((bitset<8>) this->message[i]).to_string();
+
+    for(i = 0; i < (int) (message.size()); i++)
+        key += (key[i] ^ key[i + 2]) ^ (key[i + 4] ^ key[i + 5]) ? '1' : '0';
+
+    for(i = 0; i < (int) message.size(); i++)
+        ret += key[i] ^ message[i] ? '1' : '0';
+
+    return ret;
+}
+
+/**
  * @brief Decrypt an encrypted message
  * 
  * @return string 
  */
 string E0::decrypt() {
     int i, j;
+    string key = this->key;
     string message = "";
     string ret = "";
 
+    // creation of the key
+    for(i = 0; i < (int) (this->message.size() - this->key.size()); i++)
+        key += (key[i] ^ key[i + 2]) ^ (key[i + 4] ^ key[i + 5]) ? '1' : '0';
+
     // message decoding
     for(i = 0; i < (int) this->message.size(); i++)
-        message += this->key[i] ^ this->message[i] ? '1' : '0';
+        message += key[i] ^ this->message[i] ? '1' : '0';
 
     // convert bytes to ascii
     for(i = 0; i < (int) (this->message.size() / 8); i++) {
