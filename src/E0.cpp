@@ -48,8 +48,6 @@ string E0::encrypt() {
     string message;
     string ret;
 
-    cout << this->key << endl;
-
     for(i = 0; i < (int) (this->message.size()); i++)
         message += ((bitset<8>) this->message[i]).to_string();
 
