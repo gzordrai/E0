@@ -38,6 +38,24 @@ char E0::intToAscii(int code) {
 }
 
 /**
+ * @brief Change the key
+ * 
+ * @param key The encryption key
+ */
+void E0::setKey(const string key) {
+    this->key = key;
+}
+
+/**
+ * @brief Change the message
+ * 
+ * @param message The message to encrypt/decrypt
+ */
+void E0::setMessage(const string message) {
+    this->message = message;
+}
+
+/**
  * @brief Encrypt a message
  * 
  * @return string 

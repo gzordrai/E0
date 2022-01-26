@@ -16,6 +16,8 @@ class E0 {
 
     public:
         E0(const string &key, const string &message);
+        void setKey(const string key);
+        void setMessage(const string message);
         string encrypt();
         string decrypt();
 };
