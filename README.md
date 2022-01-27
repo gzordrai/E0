@@ -1,5 +1,5 @@
 # E0
-Encryption protocol using 4 LFSR
+Encryption protocol using 4 LFSR (Linear Feedback Shift Register).
 
 ## Installation
 
@@ -15,7 +15,7 @@ Check your c++ compiler doc if it is not mingw...
 ```
 
 ## Usage
-Launch the executable `E0.exe`(`src/E0.exe`).
+Launch the executable `E0.exe` (`src/E0.exe`).
 
 ```bash
 C:.
@@ -34,7 +34,7 @@ C:.
 ```
 
 ## Library usage
-Download the `E0.cpp` and `E0.h` files
+Download the `E0.cpp` and `E0.h` files.
 
 ```cpp
 #include <string>
