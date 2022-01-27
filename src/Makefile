@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall -g
 
 main: main.o E0.o
-	$(CC) $(CFLAGS) -o main main.o E0.o
+	$(CC) $(CFLAGS) -o E0 main.o E0.o
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) -c main.cpp
